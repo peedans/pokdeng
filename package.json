@@ -2,8 +2,9 @@
   "name": "pokdeng",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/Cards.js",
+  "main": "Pokdeng.js",
   "scripts": {
+    "start": "node Pokdeng.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
