@@ -23,11 +23,11 @@ class startPokDeng{
             let deck =new Deck(cards.suits,cards.ranks)
 
             let handBanker = new TwoCardHand(deck.deck)
-            let banker =new Player("banker",handBanker.hand)
+            let banker =new Player("Banker",handBanker.hand)
             console.log("Banker", `[${banker.card[0][0]} ${banker.card[0][1]}]  [${banker.card[1][0]} ${banker.card[1][1]}]`);
 
             let handPlayer = new TwoCardHand(deck.deck)
-            let player =new Player("player",handPlayer.hand)
+            let player =new Player("Player",handPlayer.hand)
             console.log("Player", `[${player.card[0][0]} ${player.card[0][1]}]  [${player.card[1][0]} ${player.card[1][1]}]`);
 
             let threeCardHand = [banker.card, player.card];
