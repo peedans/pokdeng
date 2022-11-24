@@ -1,10 +1,10 @@
 const prompt = require("prompt-sync")({ sigint: true });
-const {Cards} = require("./lib/Cards");
-const {Deck} = require("./lib/Deck");
-const {TwoCardHand,ThreeCardHand} = require("./lib/Hand")
-const {Score} = require("./lib/Score")
-const {Player} = require("./lib/Player")
-const {LoseOrWin} = require("./lib/LoseOrWin")
+const {Cards} = require("./pokdengGame/Cards");
+const {Deck} = require("./pokdengGame/Deck");
+const {TwoCardHand,ThreeCardHand} = require("./pokdengGame/Hand")
+const {Score} = require("./pokdengGame/Score")
+const {Player} = require("./pokdengGame/Player")
+const {LoseOrWin} = require("./pokdengGame/LoseOrWin")
 
 class startPokDeng{
     constructor() {
@@ -24,15 +24,18 @@ class startPokDeng{
 
             let handBanker = new TwoCardHand(deck.deck)
             let banker =new Player("Banker",handBanker.hand)
-            console.log("Banker", `[${banker.card[0][0]} ${banker.card[0][1]}]  [${banker.card[1][0]} ${banker.card[1][1]}]`);
 
             let handPlayer = new TwoCardHand(deck.deck)
             let player =new Player("Player",handPlayer.hand)
-            console.log("Player", `[${player.card[0][0]} ${player.card[0][1]}]  [${player.card[1][0]} ${player.card[1][1]}]`);
 
-            let threeCardHand = [banker.card, player.card];
+            console.log("Banker", `[${banker.card[0][0 ]} ${banker.card[0][1]} ]  [${banker.card[1][0 ]} ${banker.card[1][1]} ]`);
+            console.log("Player", `[${player.card[0][0 ]} ${player.card[0][1]} ]  [${player.card[1][0 ]} ${player.card[1][1]} ]`);
 
-            new ThreeCardHand(threeCardHand,deck.deck)
+            let threeCardHand = [banker.card, player.card,[banker.position,player.position]];
+
+            let three = new ThreeCardHand(threeCardHand,deck.deck)
+
+            deck.deck = three.hand
 
             let scoreBanker = new Score(handBanker.hand)
             let scorePlayer = new Score(handPlayer.hand)
@@ -41,6 +44,7 @@ class startPokDeng{
             let playerScore = [scorePlayer.scoreOfCards, scorePlayer.valuesFaceOfCards];
 
             let resultLoseOrWin = new LoseOrWin(BetNumber,bankerScore,playerScore,handBanker.hand,handPlayer.hand)
+
             playerReward +=resultLoseOrWin.LoseOrWin
 
             console.log(`you got total ${playerReward} chip`)
@@ -56,4 +60,4 @@ class startPokDeng{
     }
 }
 
-let start = new startPokDeng();
+new startPokDeng();

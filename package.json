@@ -1,17 +1,5 @@
 {
-  "name": "pokdeng",
-  "version": "1.0.0",
-  "description": "",
-  "main": "Pokdeng.js",
-  "scripts": {
-    "start": "node Pokdeng.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "node-modules": "^1.0.1",
     "prompt-sync": "^4.2.0"
   }
 }
